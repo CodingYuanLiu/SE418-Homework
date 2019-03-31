@@ -1,7 +1,7 @@
-## How to use F12
+# task1
+## Investigate F12
 ### Elements Page
 Element页面对应页面的HTML结构，双击可以对某个元素的属性，css等进行调整。左上角选择元素（也可以ctrl+shift+c）可以在页面上选定元素，定位到该元素在HTML中的位置。
-
 
 ![avatar](./p1.png)
 
@@ -49,3 +49,30 @@ Network页面从左到右这样几个按钮：
 > 4. other：请求是由其他过程发送的，比如页面里的Link链接点击
 * size：size是响应头部和响应体结合的大小
 * Timing：资源请求花费的时间
+### Performance
+以下对各大高校主页的比较分析主要利用该界面，因此暂且略过。
+
+## Investigate the homepage of SJTU
+### Comparation with other pages
+> 比较对象为清华大学主页和复旦大学主页
+1. 加载时间比较
+> 从开始载入到onload
+* 清华主页：283ms
+* 复旦主页：318
+
+
+* 交大主页：1.11ms
+可以看出，交大主页的载入速度是最慢的。
+2. Performance比较
+> 从开始载入到onload，比较Event:
+* 清华主页：![avatar](./thu.png)
+* 复旦主页：![avatar](./fdu.png)
+* 交大主页：![avatar](./sjtu.png)
+
+由图片可见，SJTU主页的DCL花了太多的时间，成为了载入时间上的瓶颈。
+
+### Suggestions on optimization
+#### 1. 压缩图片数量及清晰度
+交大主页的图片量较大，因此导致其载入时间较长。因此，可以通过压缩图片（包括数量及清晰度）的方法来优化网页的加载速度。
+#### 2. 优化加载顺序
+交大主页非常长，因此刚进入主页界面的时候，许多部分是第一时间不可见的。因此可以先载入可见的部分，再载入不可见的部分，使得整个载入过程在感觉上更快。
