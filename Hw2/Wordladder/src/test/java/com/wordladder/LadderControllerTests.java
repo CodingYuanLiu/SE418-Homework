@@ -19,7 +19,7 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes=WordladderApplication.class)
 @WebAppConfiguration
-public class LadderControllorTests {
+public class LadderControllerTests {
     private MockMvc mvc;
 
     @Autowired

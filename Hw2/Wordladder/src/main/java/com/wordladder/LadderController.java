@@ -12,10 +12,10 @@ import static com.wordladder.Wordladder.check;
 import static com.wordladder.Wordladder.print_ladder;
 
 @RestController
-public class LadderControllor {
+public class LadderController {
     static private Set<String> dict;
 
-    public LadderControllor() throws IOException {
+    public LadderController() throws IOException {
         dict = new TreeSet<String>();
         InputStream f = new FileInputStream("./src/Dictionary/dictionary.txt");
         InputStreamReader isr = new InputStreamReader(f,"UTF-8");
