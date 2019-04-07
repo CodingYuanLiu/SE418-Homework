@@ -12,7 +12,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.*;
 import java.io.*;
-public class WordladderTest {
+public class WordladderTests {
 
     @Before
     public void setUp() throws Exception {
@@ -47,7 +47,7 @@ public class WordladderTest {
 
         Wordladder test = new Wordladder();
         Set<String> dict = new TreeSet<String>();
-        InputStream f = new FileInputStream("./src/dictionary/dictionary.txt");
+        InputStream f = new FileInputStream("./src/Dictionary/dictionary.txt");
         InputStreamReader isr = new InputStreamReader(f,"UTF-8");
         BufferedReader bbr = new BufferedReader(isr);
         String word;
