@@ -12,6 +12,8 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -42,7 +44,11 @@ public class ActuatortTests {
 
     @Test
     public void testHealth() throws Exception {
-        mvc.perform(get("/actuator/health")).andExpect(status().isOk());
+        MvcResult result = mvc.perform(
+                MockMvcRequestBuilders.get("/actuator/health")).andExpect(status().isOk()).andReturn();
+        JSONObject response = JSONObject.fromObject(result.getResponse().getContentAsString());
+        String status = (String)response.get("status");
+        Assert.assertEquals("status: up => health", status, "UP");
     }
 
     @Test
