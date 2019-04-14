@@ -1,5 +1,6 @@
 package com.wordladder;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,6 +13,7 @@ import static com.wordladder.Wordladder.check;
 import static com.wordladder.Wordladder.print_ladder;
 
 @RestController
+@PreAuthorize("hasRole('USER')")
 public class LadderController {
     static private Set<String> dict;
 
@@ -26,9 +28,8 @@ public class LadderController {
             dict.add(word);
         }
     }
-
-    @CrossOrigin(origins = "http://localhost:8081")
     @RequestMapping("/scanning")
+    @CrossOrigin(origins = "http://localhost:8081")
     public String Receiving(@RequestParam(required=false, defaultValue="null") String start,
                                  @RequestParam(required=false, defaultValue="null") String dest){
         Wordladder lad = new Wordladder();
