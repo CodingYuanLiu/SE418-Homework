@@ -1,5 +1,6 @@
 package com.wordladder;
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +20,7 @@ public class LadderController {
 
     public LadderController() throws IOException {
         dict = new TreeSet<String>();
-        InputStream f = new FileInputStream("./src/Dictionary/dictionary.txt");
+        InputStream f = new ClassPathResource("static/Dictionary/dictionary.txt").getInputStream();
         InputStreamReader isr = new InputStreamReader(f,"UTF-8");
         BufferedReader bbr = new BufferedReader(isr);
         String word;

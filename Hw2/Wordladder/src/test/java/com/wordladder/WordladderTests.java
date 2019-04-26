@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -47,7 +48,7 @@ public class WordladderTests {
 
         Wordladder test = new Wordladder();
         Set<String> dict = new TreeSet<String>();
-        InputStream f = new FileInputStream("./src/Dictionary/dictionary.txt");
+        InputStream f = new ClassPathResource("static/Dictionary/dictionary.txt").getInputStream();
         InputStreamReader isr = new InputStreamReader(f,"UTF-8");
         BufferedReader bbr = new BufferedReader(isr);
         String word;
