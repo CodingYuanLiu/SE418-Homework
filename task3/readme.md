@@ -51,6 +51,19 @@ docker run -p 8088:8080 -t wordladder:latest
 可知Service成功运行。
 
 ## Push to dockerhub
+之前image的名称是wordladder，不符合dockerhub的tag命名要求。我的用户名是lqyuan980413，因此首先修改image的tag,再进行docker push。
 ``` bash
+docker tag wordladder lqyuan980413/wordladder
 docker push wordladder:latest
 ```
+之后确认上传成功：
+``` bash
+docker search lqyuan980413/wordladder
+```
+![avatar](./image/search.png)
+
+从仓库获得push成功的image：
+``` bash
+docker pull lqyuan980413/wordladder
+```
+![avatar](./image/pull.png)
