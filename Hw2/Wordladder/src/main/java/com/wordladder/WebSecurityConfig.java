@@ -9,20 +9,20 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/scanning").permitAll()
-                .antMatchers("/actuator/**").permitAll()
-                .and()
-                .formLogin();
-    }
+        @Override
+        protected void configure(HttpSecurity http) throws Exception {
+            http.csrf().disable()
+                    .authorizeRequests()
+                    .antMatchers("/scanning").permitAll()
+                    .antMatchers("/actuator/**").permitAll()
+                    .and()
+                    .formLogin();
+        }
 
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("user").password("{noop}password").roles("USER");
-    }
+        @Autowired
+        public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+            auth
+                    .inMemoryAuthentication()
+                    .withUser("user").password("{noop}password").roles("USER");
+        }
 }
