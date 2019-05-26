@@ -11,3 +11,5 @@ Investigate the usage of F12, which is required to be used later to compare the 
 Using prometheus to watch the CPU and memory consumption of the wordladder service.
 ### task3
 Use docker to deploy the wordladder application.
+### task4
+Implement a container to store requests.
